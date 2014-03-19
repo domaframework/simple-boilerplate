@@ -1,0 +1,30 @@
+apply plugin: 'java'
+
+version = ''
+processResources.destinationDir = compileJava.destinationDir
+compileJava.dependsOn processResources
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile 'org.seasar.doma:doma:2.0-beta-2-SNAPSHOT'
+    runtime 'com.h2database:h2:1.3.175'
+    testCompile 'junit:junit:4.11'
+}
+
+apply from:'eclipse.gradle'
