@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Rule;
 import org.junit.Test;
-import org.seasar.doma.jdbc.tx.LocalTransactionManager;
+import org.seasar.doma.jdbc.tx.TransactionManager;
 
 import boilerplate.AppConfig;
 import boilerplate.DbResource;
@@ -20,8 +20,7 @@ public class EmployeeDaoTest {
 
     @Test
     public void testSelectById() {
-        LocalTransactionManager tm = AppConfig.singleton()
-                .getLocalTransactionManager();
+        TransactionManager tm = AppConfig.singleton().getTransactionManager();
         tm.required(() -> {
             Employee employee = dao.selectById(1);
             assertNotNull(employee);

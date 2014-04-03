@@ -1,7 +1,7 @@
 package boilerplate;
 
 import org.junit.rules.ExternalResource;
-import org.seasar.doma.jdbc.tx.LocalTransactionManager;
+import org.seasar.doma.jdbc.tx.TransactionManager;
 
 import boilerplate.dao.AppDao;
 import boilerplate.dao.AppDaoImpl;
@@ -12,8 +12,7 @@ public class DbResource extends ExternalResource {
 
     @Override
     protected void before() throws Throwable {
-        LocalTransactionManager tm = AppConfig.singleton()
-                .getLocalTransactionManager();
+        TransactionManager tm = AppConfig.singleton().getTransactionManager();
         tm.required(() -> {
             dao.create();
         });
@@ -21,8 +20,7 @@ public class DbResource extends ExternalResource {
 
     @Override
     protected void after() {
-        LocalTransactionManager tm = AppConfig.singleton()
-                .getLocalTransactionManager();
+        TransactionManager tm = AppConfig.singleton().getTransactionManager();
         tm.required(() -> {
             dao.drop();
         });
