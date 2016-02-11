@@ -1,6 +1,6 @@
 apply plugin: 'java'
 
-version = '2.6.2'
+version = '2.7.0-SNAPSHOT'
 processResources.destinationDir = compileJava.destinationDir
 compileJava.dependsOn processResources
 
