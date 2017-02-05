@@ -6,3 +6,5 @@
 /bin
 /build
 .gradle
+.idea
+out
