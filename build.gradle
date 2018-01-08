@@ -11,6 +11,7 @@ compileJava {
 
 compileTestJava {
     options.encoding = 'UTF-8'
+    options.compilerArgs = ['-proc:none']
 }
 
 task wrapper(type: Wrapper) {
