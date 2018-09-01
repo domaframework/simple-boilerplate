@@ -1,7 +1,7 @@
 apply plugin: 'java'
 
 version = '2.19.3-SNAPSHOT'
-ext.dependentVersion = '2.19.2'
+ext.dependentVersion = '2.19.3-SNAPSHOT'
 processResources.destinationDir = compileJava.destinationDir
 compileJava.dependsOn processResources
 
@@ -15,7 +15,7 @@ compileTestJava {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.6'
+    gradleVersion = '4.10'
 }
 
 repositories {
@@ -25,7 +25,9 @@ repositories {
 }
 
 dependencies {
-    compile "org.seasar.doma:doma:${dependentVersion}"
+    annotationProcessor "org.seasar.doma:doma:${dependentVersion}"
+    compileOnly "org.seasar.doma:doma:${dependentVersion}"
+    testCompile "org.seasar.doma:doma:${dependentVersion}"
     runtime 'com.h2database:h2:1.3.175'
     testCompile 'junit:junit:4.11'
 }
