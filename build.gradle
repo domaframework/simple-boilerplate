@@ -1,6 +1,6 @@
 apply plugin: 'java'
 
-version = '2.19.3'
+version = '2.19.4-SNAPSHOT'
 ext.dependentVersion = '2.19.3'
 processResources.destinationDir = compileJava.destinationDir
 compileJava.dependsOn processResources
