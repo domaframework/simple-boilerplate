@@ -14,10 +14,6 @@ compileTestJava {
     options.compilerArgs = ['-proc:none']
 }
 
-wrapper {
-    gradleVersion = '4.10'
-}
-
 repositories {
     mavenCentral()
     mavenLocal()
