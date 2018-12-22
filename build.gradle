@@ -2,10 +2,24 @@ apply plugin: 'java'
 
 version = '2.19.4-SNAPSHOT'
 ext.dependentVersion = '2.19.4-SNAPSHOT'
-processResources.destinationDir = compileJava.destinationDir
-compileJava.dependsOn processResources
+ext.domaResourcesDir = "${buildDir}/tmp/doma-resources"
+
+task extractDomaResources(type: Copy, dependsOn: processResources)  {
+    from processResources.destinationDir
+    include 'doma.compile.config'
+    include 'META-INF/**/*.sql'
+    include 'META-INF/**/*.script'
+    into domaResourcesDir
+}
+
+task copyDomaResources(type: Copy, dependsOn: extractDomaResources)  {
+    from domaResourcesDir
+    into compileJava.destinationDir
+}
 
 compileJava {
+    dependsOn copyDomaResources
+    inputs.dir domaResourcesDir
     options.encoding = 'UTF-8'
 }
 
