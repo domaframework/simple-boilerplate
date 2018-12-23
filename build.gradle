@@ -1,7 +1,7 @@
 apply plugin: 'java'
 
-version = '2.19.4-SNAPSHOT'
-ext.dependentVersion = '2.19.4-SNAPSHOT'
+version = '2.20.0'
+ext.dependentVersion = '2.20.0'
 ext.domaResourcesDir = "${buildDir}/tmp/doma-resources"
 
 task extractDomaResources(type: Copy, dependsOn: processResources)  {
