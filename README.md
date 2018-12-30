@@ -3,7 +3,7 @@ Simple-Boilerplate
 
 This is a simple boilerplate for [Doma](https://github.com/domaframework/doma).
 
-See [Getting Started](http://doma.readthedocs.org/ja/latest/getting-started/).
+See [Get started!(Eclipse)](https://doma.readthedocs.io/ja/stable/getting-started-eclipse/) and [Get started!(IntelliJ IDEA)](https://doma.readthedocs.io/ja/latest/getting-started-idea/).
 
 License
 -------
