@@ -1,6 +1,6 @@
 apply plugin: 'java'
 
-version = '2.21.0'
+version = '2.21.1-SNAPSHOT'
 ext.dependentVersion = '2.21.0'
 
 task copyDomaResources(type: Sync)  {
