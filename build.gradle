@@ -1,7 +1,7 @@
 apply plugin: 'java'
 
-version = '2.23.0-SNAPSHOT'
-ext.dependentVersion = '2.22.0'
+version = '2.23.0'
+ext.dependentVersion = '2.23.0'
 
 task copyDomaResources(type: Sync)  {
     from sourceSets.main.resources.srcDirs
