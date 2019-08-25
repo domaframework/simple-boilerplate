@@ -35,6 +35,4 @@ dependencies {
 }
 
 apply from:'eclipse.gradle'
-
 apply plugin: 'idea'
-idea.module.inheritOutputDirs = true
