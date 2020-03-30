@@ -52,16 +52,16 @@ eclipse {
     classpath {
         file {
             whenMerged { classpath ->
-                classpath.entries.removeAll { it.kind == "con" }
                 classpath.entries.removeAll { it.path == '.apt_generated' }
             }
             withXml { provider ->
                 def node = provider.asNode()
-                // specify java version
-                node.appendNode( 'classpathentry', [ kind: 'con', path: 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'])
                 // specify output path for .apt_generated
                 node.appendNode( 'classpathentry', [ kind: 'src', output: 'bin/main', path: '.apt_generated'])
             }
         }
+    }
+    jdt {
+        javaRuntimeName = 'JavaSE-1.8'
     }
 }
