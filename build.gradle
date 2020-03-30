@@ -1,10 +1,16 @@
 plugins {
     id 'java'
+    id 'com.diffplug.eclipse.apt' version '3.22.0'
 }
 
 version = '2.28.1-SNAPSHOT'
 ext.dependentVersion = '2.28.0'
 ext.domaResources = ['doma.compile.config', 'META-INF/**/*.sql', 'META-INF/**/*.script']
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
 
 task copyDomaResources(type: Sync) {
     from sourceSets.main.resources.srcDirs
@@ -42,5 +48,20 @@ dependencies {
     testImplementation 'junit:junit:4.11'
 }
 
-apply from:'eclipse.gradle'
-apply plugin: 'idea'
+eclipse {
+    classpath {
+        file {
+            whenMerged { classpath ->
+                classpath.entries.removeAll { it.kind == "con" }
+                classpath.entries.removeAll { it.path == '.apt_generated' }
+            }
+            withXml { provider ->
+                def node = provider.asNode()
+                // specify java version
+                node.appendNode( 'classpathentry', [ kind: 'con', path: 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'])
+                // specify output path for .apt_generated
+                node.appendNode( 'classpathentry', [ kind: 'src', output: 'bin/main', path: '.apt_generated'])
+            }
+        }
+    }
+}

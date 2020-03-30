@@ -8,3 +8,4 @@
 .gradle
 .idea
 out
+/.apt_generated_tests/
