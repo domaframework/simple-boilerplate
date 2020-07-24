@@ -1,4 +1,4 @@
-Simple-Boilerplate
+Simple-Boilerplate ![Java CI with Gradle](https://github.com/domaframework/simple-boilerplate/workflows/Java%20CI%20with%20Gradle/badge.svg)
 ========================================
 
 This is a simple boilerplate for [Doma](https://github.com/domaframework/doma).
