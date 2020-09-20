@@ -1,0 +1,12 @@
+.classpath
+.factorypath
+.project
+.settings
+/.apt_generated
+/bin
+/build
+.gradle
+.idea
+out
+/.apt_generated_tests/
+.sdkmanrc
