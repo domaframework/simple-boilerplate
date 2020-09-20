@@ -1,6 +1,5 @@
 package boilerplate.java15.dao;
 
-import boilerplate.java15.DbConfig;
 import boilerplate.java15.entity.Employee;
 import org.seasar.doma.Dao;
 import org.seasar.doma.Delete;
